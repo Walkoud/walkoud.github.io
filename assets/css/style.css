@@ -16,6 +16,16 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
+/* discord presence */
+
+body > section > iframe {
+    padding-top: 200px;
+    border-radius: 10px;
+    border-color: turquoise;
+    border: 1px;
+}
+
+
 /* Nav Bar */
 
 header nav {
