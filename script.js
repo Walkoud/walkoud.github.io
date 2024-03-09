@@ -31,18 +31,39 @@ var makeItRain = function() {
 
   // enter button
   document.addEventListener('DOMContentLoaded', function() {
+
+
+
     var enterButton = document.getElementById('enterButton');
 
     enterButton.addEventListener('click', function() {
         $('#overlay').addClass("overlayfade")
         enterButton.classList.add('clicked');
         playMusic();
+
+
+ 
+        
     });
+
+
+
+
 });
 
 
+
 function playMusic(){
+    let random = Math.floor(Math.random() * 3);
     var audio = new Audio('./assets/music/mylesxiety_it_will_be_alright.mp3');
+    if(random === 1 ){
+
+    } else if(random === 2) {
+        audio = new Audio('./assets/music/lost_signal.mp3');
+    } else {
+        audio = new Audio('./assets/music/destiny.mp3');
+    }
+    
     audio.play();
 }
 
@@ -50,6 +71,7 @@ function playMusic(){
 
    setTimeout(() => {
     makeItRain();
+
    
    }, 2000)
    

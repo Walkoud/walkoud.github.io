@@ -7,10 +7,22 @@
     scroll-behavior: smooth;
 }
 
+
+/* Exemple de style CSS pour masquer toutes les sections sauf celle active */
+section {
+    display: none;
+}
+
+section:target {
+    display: block;
+
+}
+
 body {
     background: linear-gradient(to bottom, #202020, #111119);
     background-image: url("../imgs/akash-udayan-d0D36Z85a1E-unsplash.jpg");
     background-position: center;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;
@@ -20,17 +32,26 @@ body {
 
 /* discord presence */
 
-body > section > iframe {
-    padding-top: 200px;
+iframe {
+    padding-top: 300px;
     border-radius: 10px;
     border-color: turquoise;
     border: 1px;
 }
 
+body > section > svg > foreignObject > div {
+    background-color: red;
+}
+
 
 /* Nav Bar */
 
+
 header nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 98%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -97,6 +118,7 @@ header nav .header_logo img {
 /* Main */
 
 section.main {
+    margin: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -338,8 +360,28 @@ section.main ul li a:hover {
     color: white;
     cursor: pointer;
     border-radius: 25px;
+
+    color: rgba(255,255,255,0.5);
+    font-size: 20px;
+    border-radius: 4px;
+    box-shadow: inset 0px 3px 5px rgba(255,255,255,0.5), 0px 0px 10px rgba(0,0,0,0.15);
+    background: rgb(2,0,36);
+  background: linear-gradient(45deg, rgba(2,0,36,0) 5%, rgba(255,255,255,.5) 6%, rgba(255,255,255,0) 9%, rgba(255,255,255,.5) 10%, rgba(255,255,255,0) 17%, rgba(255,255,255,.5) 19%, rgba(255,255,255,0) 21%);
+    background-size: 150%;
+    background-position: right;
+    transition: 1s;
 }
 
+  
+#enterButton:hover {
+    background-position: left;
+    color: white;
+    box-shadow: inset 0px 3px 5px rgba(255,255,255,1), 0px 0px 10px rgba(0,0,0,0.25);
+  }
+  
+  #enterButton:focus {
+    outline: none;
+  }
 
 
 
@@ -347,11 +389,39 @@ section.main ul li a:hover {
 
 
 
+  /* discord servers */
+
+
+  .discord-button {
+    display:block;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+
+    background-size: contain;
+background-repeat: no-repeat;
+  }
+
+  .discord-button:hover {
+    background-position: left;
+    color: white;
+    box-shadow: inset 0px 3px 5px rgba(255,255,255,1), 0px 0px 10px rgba(0,0,0,0.25);
+
+  }
+
+
+  #discord-servers {
+    display: block;
+    border-color: #111119;
+  }
 
 
 
+  /* Anonmessage */
 
-
+  #anonmessage a{
+    padding-top: 50px;
+  }
 
 
 /* walkoud.github.io */
