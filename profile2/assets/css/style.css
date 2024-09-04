@@ -445,7 +445,7 @@ section.main ul li a:hover {
     cursor: pointer;
     border-radius: 25px;
 
-    color: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0.568);
     font-size: 20px;
     border-radius: 4px;
     box-shadow: inset 0px 3px 5px rgba(255,255,255,0.5), 0px 0px 10px rgba(0,0,0,0.15);
@@ -488,7 +488,7 @@ background-repeat: no-repeat;
 
   .discord-button:hover {
     background-position: left;
-    color: rgb(26, 26, 26);
+    color: rgba(255, 255, 255, 0.781);
     box-shadow: inset 0px 3px 5px rgba(255,255,255,1), 0px 0px 10px rgba(0,0,0,0.25);
 
   }
