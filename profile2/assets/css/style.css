@@ -442,11 +442,10 @@ section.main ul li a:hover {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    color: rgb(31, 31, 31);
     cursor: pointer;
     border-radius: 25px;
 
-    color: rgba(27, 27, 27, 0.5);
+    color: rgb(255, 255, 255);
     font-size: 20px;
     border-radius: 4px;
     box-shadow: inset 0px 3px 5px rgba(255,255,255,0.5), 0px 0px 10px rgba(0,0,0,0.15);
