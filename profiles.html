@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profiles</title>
+    <style>
+        /* Centrer le contenu de la page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1d1d1d;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Conteneur pour les boutons */
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+
+
+        .profile-button {
+    
+    padding: 20px 40px;
+    font-size: 24px;
+    border: none;
+    background-image: url("../imgs/akash-udayan-d0D36Z85a1E-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    cursor: pointer;
+    border-radius: 25px;
+
+    color: rgba(255,255,255,0.5);
+    font-size: 20px;
+    border-radius: 4px;
+    box-shadow: inset 0px 3px 5px rgba(255,255,255,0.5), 0px 0px 10px rgba(0,0,0,0.15);
+    background: rgb(2,0,36);
+  background: linear-gradient(45deg, rgba(2,0,36,0) 5%, rgba(255,255,255,.5) 6%, rgba(255,255,255,0) 9%, rgba(255,255,255,.5) 10%, rgba(255,255,255,0) 17%, rgba(255,255,255,.5) 19%, rgba(255,255,255,0) 21%);
+    background-size: 150%;
+    background-position: right;
+    transition: 1s;
+}
+
+  
+.profile-button:hover {
+    background-position: left;
+    color: white;
+    box-shadow: inset 0px 3px 5px rgba(255,255,255,1), 0px 0px 10px rgba(0,0,0,0.25);
+  }
+  
+  .profile-button:focus {
+    outline: none;
+  }
+    </style>
+</head>
+<body>
+
+<div class="buttons-container" id="profileButtons">
+    <!-- Les boutons seront générés ici -->
+</div>
+
+<script>
+    // Simulation des dossiers profils existants (normalement ce serait côté serveur)
+    var profiles = ['profile1', 'profile2'];  // Liste des profils existants
+
+    // Référence au conteneur des boutons
+    var buttonsContainer = document.getElementById('profileButtons');
+
+    // Génération des boutons en fonction des profils disponibles
+    profiles.forEach(function(profile) {
+        var button = document.createElement('button');
+        button.textContent = "Profile " + profile.replace('profile', '');
+        button.classList.add('profile-button');
+        button.addEventListener('click', function() {
+            window.location.href = "./"+profile+"/index.html" ;  // Redirection vers la page de profil (ex: profile1.html)
+        });
+        buttonsContainer.appendChild(button);
+    });
+</script>
+
+</body>
+</html>
