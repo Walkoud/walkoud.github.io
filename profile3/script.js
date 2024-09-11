@@ -59,7 +59,7 @@ setInterval(() => {
 }, 1000)
 
 
-loaded = true
+
   // enter button
   document.addEventListener('DOMContentLoaded', function() {
 
