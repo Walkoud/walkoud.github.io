@@ -47,7 +47,7 @@ setTimeout(() => {
   // Changer le texte du bouton
   enterButton.innerText = "enter";
   
-}, 5000)
+}, 8000)
 
 setInterval(() => {
   var enterButton = document.getElementById('enterButton');
