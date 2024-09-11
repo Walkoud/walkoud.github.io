@@ -29,6 +29,41 @@ var makeItRain = function() {
   
 
 
+  window.addEventListener('load', function() {
+    const video = document.getElementById('myVideo');
+
+    video.addEventListener('canplaythrough', function() {
+      var enterButton = document.getElementById('enterButton');
+
+        // Changer le texte du bouton
+        enterButton.innerText = "enter";
+        console.log("La vidéo est complètement chargée et peut être lue sans interruption.");
+        // Place ici ton code pour notifier ou faire des actions supplémentaires
+
+    });
+});
+
+let loaded = false;
+setTimeout(() => {
+  var enterButton = document.getElementById('enterButton');
+
+  loaded = true;
+  // Changer le texte du bouton
+  enterButton.innerText = "enter";
+  
+}, 5000)
+
+setInterval(() => {
+  var enterButton = document.getElementById('enterButton');
+
+  if(!loaded){
+    enterButton.innerText+= "."
+  }
+
+}, 1000)
+
+
+
   // enter button
   document.addEventListener('DOMContentLoaded', function() {
 
@@ -38,6 +73,7 @@ var makeItRain = function() {
     var video = document.getElementById('myVideo');
 
     enterButton.addEventListener('click', function() {
+        if(!loaded)return;
         $('#overlay').addClass("overlayfade")
         enterButton.classList.add('clicked');
 
