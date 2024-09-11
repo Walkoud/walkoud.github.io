@@ -38,7 +38,7 @@ var makeItRain = function() {
     $(this).attr('poster', '');
   });
 
-/*
+
 let loaded = false;
 setTimeout(() => {
   var enterButton = document.getElementById('enterButton');
@@ -47,7 +47,7 @@ setTimeout(() => {
   // Changer le texte du bouton
   enterButton.innerText = "enter";
   
-}, 10000)
+}, 5000)
 
 setInterval(() => {
   var enterButton = document.getElementById('enterButton');
@@ -57,7 +57,7 @@ setInterval(() => {
   }
 
 }, 1000)
-*/
+
 
 
   // enter button
@@ -69,7 +69,7 @@ setInterval(() => {
     var video = document.getElementById('myVideo');
 
     enterButton.addEventListener('click', function() {
-        //if(!loaded)return;
+        if(!loaded)return;
         $('#overlay').addClass("overlayfade")
         enterButton.classList.add('clicked');
 
