@@ -29,20 +29,16 @@ var makeItRain = function() {
   
 
 
-  window.addEventListener('load', function() {
-    const video = document.getElementById('myVideo');
+  $('#video_id').on('loadstart', function (event) {
+    $(this).addClass('loading');
+    console.log("video loaded")
+  });
+  $('#video_id').on('canplay', function (event) {
+    $(this).removeClass('loading');
+    $(this).attr('poster', '');
+  });
 
-    video.addEventListener('canplaythrough', function() {
-      var enterButton = document.getElementById('enterButton');
-
-        // Changer le texte du bouton
-        enterButton.innerText = "enter";
-        console.log("La vidéo est complètement chargée et peut être lue sans interruption.");
-        // Place ici ton code pour notifier ou faire des actions supplémentaires
-
-    });
-});
-
+/*
 let loaded = false;
 setTimeout(() => {
   var enterButton = document.getElementById('enterButton');
@@ -61,7 +57,7 @@ setInterval(() => {
   }
 
 }, 1000)
-
+*/
 
 
   // enter button
@@ -73,7 +69,7 @@ setInterval(() => {
     var video = document.getElementById('myVideo');
 
     enterButton.addEventListener('click', function() {
-        if(!loaded)return;
+        //if(!loaded)return;
         $('#overlay').addClass("overlayfade")
         enterButton.classList.add('clicked');
 
