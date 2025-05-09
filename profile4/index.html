@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/imgs/me.jpg">
+    
+    <title>Walkoud</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="overlay">
+        <span></span>
+        <span></span>
+                <button id="enterButton">LOADING
+                    
+                </button>
+        <span></span>
+        <span></span>
+
+    </div>    <!-- Background Video -->
+    <video autoplay loop muted id="myVideo" preload="auto">
+        <source src="assets/videos/video.mp4" type="video/mp4">
+    </video>
+
+    <!-- Background Effects -->
+   <!-- <div class="rain front-row"></div>
+    <div class="rain back-row"></div>
+--> 
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="header_logo">
+                <button class="profilesbutton" onclick="location.href='../profiles.html'">Profiles</button>
+            </div>
+            <div class="header_links">                <ul class="nav_links">                    <li class="nav_link"><a href="#home" class="active">Home</a></li>
+                    <li class="nav_link"><a href="#servers">Servers</a></li>
+                    <li class="nav_link"><a href="#anonmessage">AnonMessage</a></li>
+                    <li class="nav_link"><a href="javascript:void(0)" id="gasButton">GAS</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="main active">
+            <div class="card">
+                <span class="pseudo">walkoud</span>
+                <p class="typewriter">feel what you want</p>
+                <ul>
+                    <li><a href="https://discord.gg/hlp-private-736923536475684974" target="_blank"><i class="fab fa-discord"></i></a></li>
+                    <li><a href="https://github.com/walkoud" target="_blank"><i class="fab fa-github"></i></a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Servers Section -->
+        <section id="servers" class="main">
+            <h2>Discord Servers</h2>
+            <div id="discord-servers">
+                <div class="server">
+                    <a class="discord-button" href="https://discord.gg/hlp-private-736923536475684974" style="background-image: url(./assets/imgs/hap.gif)"></a>
+                    <span>HAP Private 🍸</span>
+                </div>
+                <div class="server">
+                    <a class="discord-button" href="https://discord.gg/GqDNB3dmnV" style="background-image: url(./assets/imgs/haproot.gif)"></a>
+                    <span>HAP ROOT 🔒</span>
+                </div>
+                <div class="server">
+                    <a class="discord-button" href="https://discord.gg/vTcJQERWBX" style="background-image: url(./assets/imgs/radiojap.png)"></a>
+                    <span>SOW Support</span>
+                </div>
+            </div>
+        </section>        <!-- Contact Section -->
+        <section id="anonmessage" class="main">
+            <h2>AnonMessage</h2>
+            <p>Say something anonymously</p>
+            <a href="https://sayout.me/say/walkoud" class="contact-button">Send Message</a>
+        </section>
+    </main>
+
+    <!-- Discord Presence -->
+    <div class="discord-presence">
+        <iframe id="firstaccount" src="https://lanyard.cnrad.dev/api/804766267742617612?bg=transparant&idleMessage=inaccessible%20account%20now" width="400" height="200"></iframe>
+        <iframe id="secondaccount" src="https://lanyard.cnrad.dev/api/708004377016664124?bg=transparant&idleMessage=second%20account&hideClan=true" width="400" height="200"></iframe>
+    </div>    <script>
+        // Show active section and hide others
+        document.querySelectorAll('.nav_links a:not(#gasButton)').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Remove active class from all sections
+                document.querySelectorAll('section.main').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Add active class to target section
+                const targetId = link.getAttribute('href').substring(1);
+                document.getElementById(targetId).classList.add('active');
+                
+                // Update active link
+                document.querySelectorAll('.nav_links a').forEach(a => a.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

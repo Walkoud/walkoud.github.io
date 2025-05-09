@@ -70,7 +70,7 @@
 
 <script>
     // Simulation des dossiers profils existants (normalement ce serait côté serveur)
-    var profiles = ['profile1', 'profile2', "profile3"];  // Liste des profils existants
+    var profiles = ['profile1', 'profile2', "profile3", "profile4"];  // Liste des profils existants
 
     // Référence au conteneur des boutons
     var buttonsContainer = document.getElementById('profileButtons');
@@ -79,6 +79,9 @@
     profiles.forEach(function(profile) {
         var button = document.createElement('button');
         button.textContent = "Profile " + profile.replace('profile', '');
+        if(profile == "profile4") {
+            button.textContent = "BMW";
+        }
         button.classList.add('profile-button');
         button.addEventListener('click', function() {
             window.location.href = "./"+profile+"/index.html" ;  // Redirection vers la page de profil (ex: profile1.html)
