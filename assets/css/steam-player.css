@@ -1,0 +1,249 @@
+/* ===== Steam icons + music player (shared) ===== */
+.music-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin: 18px auto 8px;
+    padding: 6px 4px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    max-width: 380px;
+}
+
+.mp-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.mp-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #c9cdd8;
+    font-size: 13px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.mp-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.mp-btn.mp-play {
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.mp-track {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    width: 100%;
+    flex: 1;
+}
+
+.mp-title-wrap {
+    width: 130px;
+    max-width: 100%;
+    overflow: hidden;
+    line-height: 1.4;
+}
+
+.mp-title-wrap.scrolling .mp-title {
+    animation: mp-marquee var(--mp-marquee-duration, 8s) ease-in-out infinite alternate;
+}
+
+@keyframes mp-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(var(--mp-marquee-distance, -50%)); }
+}
+
+.music-player .mp-title {
+    background: none;
+    background-clip: border-box;
+    -webkit-background-clip: border-box;
+    -webkit-text-fill-color: #c9cdd8;
+    color: #c9cdd8;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: normal;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    text-align: left;
+    animation: none;
+}
+
+.music-player .mp-progress {
+    display: block;
+    margin-top: 5px;
+    height: 3px;
+    width: 100%;
+    font-size: 0;
+    line-height: 0;
+    background: rgba(255, 255, 255, 0.15);
+    background-clip: border-box;
+    -webkit-background-clip: border-box;
+    border-radius: 3px;
+    overflow: hidden;
+    animation: none;
+}
+
+.music-player .mp-progress-fill {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #73ff00, #00b8a8);
+    background-clip: border-box;
+    -webkit-background-clip: border-box;
+    -webkit-text-fill-color: initial;
+    border-radius: 3px;
+    transition: width 0.15s linear;
+    animation: none;
+}
+
+.steam-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.steam-btn .steam-svg {
+    width: 1em;
+    height: 1em;
+    display: block;
+    vertical-align: middle;
+}
+
+section.main ul,
+.card ul {
+    align-items: center;
+}
+
+section.main ul li,
+.card ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+/* Profiles 2/3/4 inherit their page link color automatically */
+.page-profile1 .steam-btn.steam-main {
+    color: #a6a8b8 !important;
+}
+
+.page-profile1 .steam-btn.steam-main:hover {
+    color: #ffffff !important;
+}
+
+.page-profile1 .steam-btn.steam-cs2 {
+    color: #e7dcaa !important;
+}
+
+.page-profile1 .steam-btn.steam-cs2:hover {
+    color: #f7edb8 !important;
+    filter: drop-shadow(0 0 6px rgba(245, 230, 168, 0.55));
+}
+
+.steam-btn::after {
+    content: attr(data-label);
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 4px);
+    transform: translateX(-50%) translateY(4px);
+    background: rgba(17, 17, 25, 0.95);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.18s ease;
+}
+
+.steam-btn:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media only screen and (max-width: 480px) {
+    .music-player {
+        max-width: 240px;
+        padding: 7px 10px;
+    }
+
+    .music-player .mp-title-wrap {
+        max-width: 110px;
+    }
+}
+
+/* Compact mode: transparent play/pause only */
+.music-player.compact {
+    justify-content: center;
+    gap: 0;
+    margin: 18px auto 8px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    max-width: none;
+}
+
+.music-player.compact .mp-btn.mp-play {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+    color: #ffffff;
+    background: transparent;
+    transition: 0.2s;
+}
+
+.music-player.compact .mp-btn.mp-play:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Black icon variant (transparent background) */
+.music-player.compact.player-black .mp-btn.mp-play {
+    background: transparent;
+    color: #000000;
+    border: none;
+}
+
+.music-player.compact.player-black .mp-btn.mp-play:hover {
+    background: transparent;
+    color: #000000;
+}
+

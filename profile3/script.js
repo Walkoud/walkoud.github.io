@@ -60,6 +60,28 @@ setInterval(() => {
 
 
 
+window.PLAYER_TRACKS = [
+    { src: '../assets/music/mylesxiety_it_will_be_alright.mp3', title: 'it will be alright' },
+    { src: '../assets/music/lost_signal.mp3', title: 'lost signal' },
+    { src: '../assets/music/destiny.mp3', title: 'destiny' }
+];
+
+function playMusic(){
+    var random = Math.floor(Math.random() * window.PLAYER_TRACKS.length);
+    window.profilePlayer.load(random, true);
+}
+
+window.PLAYER_ON_TOGGLE = function (playing) {
+    var video = document.getElementById('myVideo');
+    if (!video) return;
+    if (playing) {
+        var p = video.play();
+        if (p && p.catch) p.catch(function () {});
+    } else {
+        video.pause();
+    }
+};
+
   // enter button
   document.addEventListener('DOMContentLoaded', function() {
 
@@ -79,6 +101,8 @@ setInterval(() => {
                 
         // Lance la vidéo
         video.play();
+
+        playMusic();
 
 
 

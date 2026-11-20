@@ -53,18 +53,15 @@ var makeItRain = function() {
 
 
 
-function playMusic(){
-    let random = Math.floor(Math.random() * 3);
-    var audio = new Audio('./assets/music/mylesxiety_it_will_be_alright.mp3');
-    if(random === 1 ){
+window.PLAYER_TRACKS = [
+    { src: './assets/music/mylesxiety_it_will_be_alright.mp3', title: 'it will be alright' },
+    { src: './assets/music/lost_signal.mp3', title: 'lost signal' },
+    { src: './assets/music/destiny.mp3', title: 'destiny' }
+];
 
-    } else if(random === 2) {
-        audio = new Audio('./assets/music/lost_signal.mp3');
-    } else {
-        audio = new Audio('./assets/music/destiny.mp3');
-    }
-    
-    audio.play();
+function playMusic(){
+    var random = Math.floor(Math.random() * window.PLAYER_TRACKS.length);
+    window.profilePlayer.load(random, true);
 }
 
 

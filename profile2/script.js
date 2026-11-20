@@ -94,11 +94,12 @@ setInterval(() => {
 
 
 
+window.PLAYER_TRACKS = [
+    { src: './assets/music/flokilostsouldown.mp3', title: 'floki - lost soul down' }
+];
+
 function playMusic(){
-    let random = Math.floor(Math.random() * 3);
-    var audio = new Audio('./assets/music/flokilostsouldown.mp3');
-    
-    audio.play();
+    window.profilePlayer.load(0, true);
 }
 
 

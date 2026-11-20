@@ -24,6 +24,15 @@ var makeItRain = function() {
 // Renouvelle l'effet de pluie périodiquement
 setInterval(makeItRain, 10000);
 
+window.PLAYER_TRACKS = [
+    { src: 'assets/videos/music.opus', title: 'Feel What You Want feat. Rebecca (Slowed Down Version) (avec Rebecca)' },
+    { src: 'assets/music/missing_slowed.mp3', title: 'Velours - Missing (Slowed)' }
+];
+
+function playMusic(){
+    window.profilePlayer.load(0, true);
+}
+
 // Gestion du chargement
 let loaded = false;
 let dots = 0;
@@ -50,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const enterButton = document.getElementById('enterButton');
     const video = document.getElementById('myVideo');
     const overlay = document.getElementById('overlay');
-    const audio = new Audio('assets/videos/music.opus');
     const gasAudio = new Audio('assets/videos/gas.mp3');
     
     // Initialize rain effect
@@ -84,20 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
             video.style.opacity = 1;
         }, 50);
 
-        // Start music with fade in
-        audio.volume = 0;
-        audio.play();
-        audio.loop = true;
-        
-        // Fade in audio
-        const fadeAudio = setInterval(() => {
-            if (audio.volume < 0.95) {
-                audio.volume += 0.05;
-            } else {
-                audio.volume = 1;
-                clearInterval(fadeAudio);
-            }
-        }, 100);
+        // Start music
+        playMusic();
 
         // Hide overlay after animation
         setTimeout(() => {
